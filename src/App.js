@@ -32,7 +32,8 @@ class App extends Component {
     console.log('my compoent was updated and rerendered')
   }
 
-  render() {
+  //render logical statments here
+  renderContent() {
     if (this.state.err && !this.state.lat) {
       return <div>Error: {this.state.err}</div>;
     }
@@ -40,6 +41,14 @@ class App extends Component {
       return <SeasonDisplay lat={this.state.lat}/>;
     }
     return <Loader/>;
+  }
+
+  render() {
+    return (
+      <div className='wrapper'>
+        {this.renderContent()}
+      </div>
+    )
   }
 }
 
